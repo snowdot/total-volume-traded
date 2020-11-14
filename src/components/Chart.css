@@ -1,0 +1,13 @@
+.domain {
+    stroke: transparent;
+}
+
+.tick line {
+    stroke: transparent;
+}
+
+.tick text {
+    font-family: 'Comfortaa', cursive;
+    font-size: 12px;
+    font-weight: bold;
+}

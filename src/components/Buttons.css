@@ -1,0 +1,11 @@
+.buttons {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.active {
+    background-color: var(--black);
+    border: 0;
+    color: var(--white);
+}
