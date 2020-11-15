@@ -47,7 +47,6 @@ const Chart = ({ value, price, setTotal }) => {
         const million = 1000000;
         const billion = 1000000000;
 
-        console.log()
         d3.selectAll('*').interrupt();
         d3.selectAll('.particle').remove();
 
