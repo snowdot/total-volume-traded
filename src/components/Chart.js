@@ -1,10 +1,45 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './Chart.css';
 import * as d3 from 'd3';
 import data from '../data/volumes.json';
 
+const getBrowserVisibilityProp = () => {
+    if (typeof document.hidden !== 'undefined') {
+        return 'visibilitychange';
+    } else if (typeof document.msHidden !== 'undefined') {
+        return 'msvisibilitychange';
+    } else if (typeof document.webkitHidden !== 'undefined') {
+        return 'webkitvisibilitychange';
+    }
+}
+
+const getBrowserDocumentHiddenProp = () => {
+    if (typeof document.hidden !== 'undefined') {
+        return 'hidden';
+    } else if (typeof document.msHidden !== 'undefined') {
+        return 'msHidden';
+    } else if (typeof document.webkitHidden !== 'undefined') {
+        return 'webkitHidden';
+    }
+}
+
+const getIsDocumentHidden = () => {
+    return !document[getBrowserDocumentHiddenProp()];
+}
+
 const Chart = ({ value, price, setTotal }) => {
     const svgRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(getIsDocumentHidden());
+
+    useEffect(() => {
+        const visibilityChange = getBrowserVisibilityProp();
+
+        document.addEventListener(visibilityChange, onVisibilityChange, false);
+
+        return () => {
+            document.removeEventListener(visibilityChange, onVisibilityChange)
+        }    
+    });
 
     useEffect(() => {
         const volumes = data.map(elem => (Number(elem.AMOUNT_IN_ETH) + Number(elem.AMOUNT_OUT_ETH)) / Math.pow(10, 18));
@@ -425,15 +460,21 @@ const Chart = ({ value, price, setTotal }) => {
         }
 
         const interval = setTimeout(() => {
-            setInterval(() => {
-                createParticles();
-            }, getRandomInt(duration, 500));
+            if(isVisible) {
+                setInterval(() => {
+                    createParticles();
+                }, getRandomInt(duration, 500));
+            }
         }, duration * 2);
 
         return () => {
             clearTimeout(interval);
         }
-    }, [value, price, setTotal]);
+    }, [value, price, setTotal, isVisible]);
+
+    const onVisibilityChange = () => {
+        setIsVisible(getIsDocumentHidden());
+    }
 
     const getRandomInt = (min, max) => {
         min = Math.ceil(min);
@@ -442,7 +483,7 @@ const Chart = ({ value, price, setTotal }) => {
     }
 
     return (
-        <div className="canvas">
+        <div className='canvas'>
             <svg ref={svgRef}></svg>
         </div>
     );
