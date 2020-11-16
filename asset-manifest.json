@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/total-volume-traded/static/css/main.3e399502.chunk.css",
-    "main.js": "/total-volume-traded/static/js/main.c484bfea.chunk.js",
-    "main.js.map": "/total-volume-traded/static/js/main.c484bfea.chunk.js.map",
+    "main.js": "/total-volume-traded/static/js/main.088d4a64.chunk.js",
+    "main.js.map": "/total-volume-traded/static/js/main.088d4a64.chunk.js.map",
     "runtime-main.js": "/total-volume-traded/static/js/runtime-main.c8ba9e9f.js",
     "runtime-main.js.map": "/total-volume-traded/static/js/runtime-main.c8ba9e9f.js.map",
-    "static/js/2.50c82772.chunk.js": "/total-volume-traded/static/js/2.50c82772.chunk.js",
-    "static/js/2.50c82772.chunk.js.map": "/total-volume-traded/static/js/2.50c82772.chunk.js.map",
+    "static/js/2.fd459b9a.chunk.js": "/total-volume-traded/static/js/2.fd459b9a.chunk.js",
+    "static/js/2.fd459b9a.chunk.js.map": "/total-volume-traded/static/js/2.fd459b9a.chunk.js.map",
     "index.html": "/total-volume-traded/index.html",
     "static/css/main.3e399502.chunk.css.map": "/total-volume-traded/static/css/main.3e399502.chunk.css.map",
-    "static/js/2.50c82772.chunk.js.LICENSE.txt": "/total-volume-traded/static/js/2.50c82772.chunk.js.LICENSE.txt",
+    "static/js/2.fd459b9a.chunk.js.LICENSE.txt": "/total-volume-traded/static/js/2.fd459b9a.chunk.js.LICENSE.txt",
     "static/media/unicorn.2a98a9e1.svg": "/total-volume-traded/static/media/unicorn.2a98a9e1.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.c8ba9e9f.js",
-    "static/js/2.50c82772.chunk.js",
+    "static/js/2.fd459b9a.chunk.js",
     "static/css/main.3e399502.chunk.css",
-    "static/js/main.c484bfea.chunk.js"
+    "static/js/main.088d4a64.chunk.js"
   ]
 }
